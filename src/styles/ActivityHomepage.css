@@ -1,0 +1,96 @@
+.ActivityHomepage {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 10px; /* adjust this value as needed */
+    width: 330px;
+    height: auto;
+    padding-bottom: 20px;
+    border: black 2px solid;
+    background: #e0e0e0;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+  
+  .ActivityHomepage .Header {
+    margin: 0;
+    font-weight: bold;
+    font-size: larger;
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    background-color: #32e45f;
+    padding: 8px;
+    border-bottom: black 2px solid;
+    width: 95%;
+  }
+
+  .ActivityHomepage .Header .Name{
+      overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ActivityHomepage .Header .Capacity{
+    font-size: medium;
+    text-align: right;
+  }
+  
+  .ActivityHomepage .info-container {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 95%;
+  }
+  
+  .ActivityHomepage .Address {
+    display: inline-block;
+  }
+  .ActivityHomepage p {
+    margin: 5px;
+    height: fit-content;
+    text-align: left;
+  }
+  
+  .ActivityHomepage .login-message {
+    text-align: center;
+  }
+
+  .buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  
+  .ActivityHomepage button {
+    margin-top: 20px;
+    margin: 5px;
+    display: inline-block;
+    outline: none;
+    border-width: 0px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: inherit;
+    font-weight: 500;
+    max-width: 100%;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+    background: #32e45f;
+    cursor: pointer;
+    height: 32px;
+    line-height: 32px;
+    padding: 0px 12px;
+    vertical-align: middle;
+    width: auto;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .ActivityHomepage button:hover {
+    background: rgb(85, 234, 125);
+    text-decoration: inherit;
+    transition-duration: 0s, 0.15s;
+    color: rgb(0, 0, 0);
+  }
+  

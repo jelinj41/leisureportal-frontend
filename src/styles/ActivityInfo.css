@@ -1,0 +1,85 @@
+.ActivityInfo {
+    text-align: left;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    width: 500px;
+    height: auto;
+    background: #e0e0e0;
+    border: black 2px solid;
+
+    position: absolute;
+    padding-bottom: 15px;
+    transition: opacity 1s;
+}
+
+.ActivityInfo p {
+    margin: 5px;
+    height: fit-content;
+}
+
+
+.ActivityInfo .Name {
+    text-align: center;
+    width: 96.5%;
+    margin: 0;
+    font-weight: bold;
+    font-size: larger;
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    background-color:#32e45f;
+    padding: 8px;
+    border-bottom: black 2px solid;
+    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ActivityInfo .info-container {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 95%;
+  }
+
+.ActivityInfo .Address {
+    display: inline-block;
+  }
+
+  .ActivityInfo .Description {
+    display: inline-block;
+  }
+
+.ActivityInfo button {
+
+    display: inline-block;
+    outline: none;
+    border-width: 0px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: inherit;
+    font-weight: 500;
+    max-width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+    background: #32e45f;
+    cursor: pointer;
+    height: 32px;
+    line-height: 32px;
+    padding: 0px 12px;
+    vertical-align: middle;
+    width: auto;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+
+}
+
+.ActivityInfo button:hover {
+    background: rgb(85, 234, 125);
+    text-decoration: inherit;
+    transition-duration: 0s, 0.15s;
+    color: rgb(0, 0, 0);
+}

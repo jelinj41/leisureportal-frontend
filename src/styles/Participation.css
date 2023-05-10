@@ -1,0 +1,32 @@
+.Participation {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    width: 60vw;
+    background: #e0e0e0;
+    border: black 2px solid;
+  }
+  
+  .Participation .activity {
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    background-color: #32e45f;
+    padding: 8px;
+    border-bottom: black 2px solid;
+    width: 98.3%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .Participation .info-container {
+    margin: 5px;
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  

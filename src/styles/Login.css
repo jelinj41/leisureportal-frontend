@@ -1,0 +1,74 @@
+.Login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.Login div {
+    padding: 5px;
+    display: flex;
+    width: 100%;
+    height: 5vh;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    align-content: space-between;
+}
+
+input {
+    margin-left: 15px;
+    height: 20px;
+
+    border-radius: 5px;
+    background: rgb(249, 250, 250);
+    border: 1px solid rgb(181, 189, 196);
+    font-size: 16px;
+    height: 25px;
+    line-height: 24px;
+    padding: 7px 8px;
+    color: rgb(8, 9, 10);
+    box-shadow: none;
+
+}
+
+input:focus {
+    background-color: #fff;
+    border-color: #3b49df;
+    box-shadow: 1px 1px 0 #3b49df;
+}
+
+
+.Login button {
+    align-self: flex-end;
+    margin-top: 10px;
+    display: inline-block;
+    outline: none;
+    border-width: 0px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: inherit;
+    font-weight: 500;
+    max-width: 100%;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+    background: #32e45f;
+    cursor: pointer;
+    height: 32px;
+    line-height: 32px;
+    padding: 0px 12px;
+    vertical-align: middle;
+    width: auto;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+
+}
+
+.Login button:hover {
+    background: rgb(85, 234, 125);
+    text-decoration: inherit;
+    transition-duration: 0s, 0.15s;
+    color: rgb(0, 0, 0);
+}

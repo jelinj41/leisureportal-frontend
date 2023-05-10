@@ -1,0 +1,29 @@
+.ActivitiesPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.Filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.categories,
+.cities {
+  margin-right: 20px; /* adjust this value as needed */
+}
+
+.ActivitiesContainer {
+  display:flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
