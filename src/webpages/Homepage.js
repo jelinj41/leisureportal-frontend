@@ -22,7 +22,7 @@ class Homepage extends Component {
       method: "GET",
       credentials: 'include',
       headers: {
-        mode: 'cors',
+        mode: 'no-cors',
         'Content-Type': 'application/json',
       }
     })
@@ -41,7 +41,7 @@ class Homepage extends Component {
       method: "GET",
       credentials: 'include',
       headers: {
-        mode: 'cors',
+        mode: 'no-cors',
         'Content-Type': 'application/json',
       }
     })
