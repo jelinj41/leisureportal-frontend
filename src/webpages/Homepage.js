@@ -18,62 +18,62 @@ class Homepage extends Component {
   async checkLoggedIn() {
     const API_URL = process.env.REACT_APP_API_URL
     let restURL = API_URL + "/rest/users/isLoggedIn";
-    await fetch(restURL, {
-      method: "GET",
-      credentials: 'include',
-      headers: {
-        mode: 'no-cors',
-        'Content-Type': 'application/json',
-      }
-    })
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        this.setState({ isLoggedIn: data });
-      })
+    try {
+      const response = await fetch(restURL, {
+        method: "GET",
+        credentials: 'include',
+        headers: {
+          mode: 'no-cors',
+          'Content-Type': 'application/json',
+        }
+      });
+      const data = await response.json();
+      this.setState({ isLoggedIn: data });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async fetchUser() {
     const API_URL = process.env.REACT_APP_API_URL
     let restURL = API_URL + "/rest/users/current";
-    await fetch(restURL, {
-      method: "GET",
-      credentials: 'include',
-      headers: {
-        mode: 'no-cors',
-        'Content-Type': 'application/json',
-      }
-    })
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        this.setState({ profileData: data });
-      })
+    try {
+      const response = await fetch(restURL, {
+        method: "GET",
+        credentials: 'include',
+        headers: {
+          mode: 'no-cors',
+          'Content-Type': 'application/json',
+        }
+      });
+      const data = await response.json();
+      this.setState({ profileData: data });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async fetchData() {
     const API_URL = process.env.REACT_APP_API_URL
     let restURL = API_URL + "/rest/activities/";
-    await fetch(restURL, {
-      headers: {
-        method: "GET",
-        'Content-Type': 'application/json',
-      }
-    })
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        this.setState({ activities: data });
-      })
+    try {
+      const response = await fetch(restURL, {
+        headers: {
+          method: "GET",
+          'Content-Type': 'application/json',
+        }
+      });
+      const data = await response.json();
+      this.setState({ activities: data });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
-  componentDidMount() {
-    this.checkLoggedIn()
-    this.fetchUser()
-    this.fetchData()
+  async componentDidMount() {
+    await this.checkLoggedIn();
+    await this.fetchUser();
+    await this.fetchData();
   }
 
   showInfo = (infoToShow) => {
