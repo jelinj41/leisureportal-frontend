@@ -22,17 +22,24 @@ class Homepage extends Component {
       method: "GET",
       credentials: 'include',
       headers: {
-        mode: 'no-cors',
         'Content-Type': 'application/json',
       }
     })
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        this.setState({ isLoggedIn: data });
-      })
+    .then(response => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        throw new Error('Failed to fetch user data');
+      }
+    })
+    .then(data => {
+      this.setState({ isLoggedIn: data });
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }
+  
 
   async fetchUser() {
     const API_URL = process.env.REACT_APP_API_URL
