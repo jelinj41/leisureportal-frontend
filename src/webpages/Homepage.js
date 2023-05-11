@@ -88,8 +88,8 @@ class Homepage extends Component {
   }
 
   render() {
-    console.log(isLoggedIn)
-    console.log(profileData)
+    console.log(this.state.isLoggedIn)
+    console.log(this.state.profileData)
     let activityList = [];
 
     this.state.activities.slice(-4).forEach(activity => {
