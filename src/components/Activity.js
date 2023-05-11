@@ -48,8 +48,7 @@ class Activity extends Component {
         const restURL = API_URL + "/rest/addresses/myAddresses";
         await fetch(restURL, {
             headers: {
-                //mode: 'no-cors',
-                'Content-Type': 'application/json'
+                'Accept': 'application/json'
             }
         })
         .then(response => {
