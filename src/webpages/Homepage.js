@@ -18,62 +18,62 @@ class Homepage extends Component {
   async checkLoggedIn() {
     const API_URL = process.env.REACT_APP_API_URL
     let restURL = API_URL + "/rest/users/isLoggedIn";
-    try {
-      const response = await fetch(restURL, {
-        method: "GET",
-        credentials: 'include',
-        headers: {
-          mode: 'no-cors',
-          'Content-Type': 'application/json',
-        }
-      });
-      const data = await response.json();
-      this.setState({ isLoggedIn: data });
-    } catch (error) {
-      console.error(error);
-    }
+    await fetch(restURL, {
+      method: "GET",
+      credentials: 'include',
+      headers: {
+        mode: 'no-cors',
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        this.setState({ isLoggedIn: data });
+      })
   }
 
   async fetchUser() {
     const API_URL = process.env.REACT_APP_API_URL
     let restURL = API_URL + "/rest/users/current";
-    try {
-      const response = await fetch(restURL, {
-        method: "GET",
-        credentials: 'include',
-        headers: {
-          mode: 'no-cors',
-          'Content-Type': 'application/json',
-        }
-      });
-      const data = await response.json();
-      this.setState({ profileData: data });
-    } catch (error) {
-      console.error(error);
-    }
+    await fetch(restURL, {
+      method: "GET",
+      credentials: 'include',
+      headers: {
+        mode: 'no-cors',
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        this.setState({ profileData: data });
+      })
   }
 
   async fetchData() {
     const API_URL = process.env.REACT_APP_API_URL
     let restURL = API_URL + "/rest/activities/";
-    try {
-      const response = await fetch(restURL, {
-        headers: {
-          method: "GET",
-          'Content-Type': 'application/json',
-        }
-      });
-      const data = await response.json();
-      this.setState({ activities: data });
-    } catch (error) {
-      console.error(error);
-    }
+    await fetch(restURL, {
+      headers: {
+        method: "GET",
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        this.setState({ activities: data });
+      })
   }
 
-  async componentDidMount() {
-    await this.checkLoggedIn();
-    await this.fetchUser();
-    await this.fetchData();
+  componentDidMount() {
+    this.checkLoggedIn()
+    this.fetchUser()
+    this.fetchData()
   }
 
   showInfo = (infoToShow) => {
@@ -89,7 +89,7 @@ class Homepage extends Component {
 
   render() {
     console.log(this.state.isLoggedIn)
-    console.log(this.state.profileData)
+    console.log(this.stateprofileData)
     let activityList = [];
 
     this.state.activities.slice(-4).forEach(activity => {
