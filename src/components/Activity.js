@@ -45,7 +45,7 @@ class Activity extends Component {
     }
     async fetchAddress() {
         const API_URL = process.env.REACT_APP_API_URL
-        const restURL = API_URL + "/rest/addresses/myAddresses";
+        let restURL = API_URL + "/rest/addresses/myAddresses";
         await fetch(restURL, {
             headers: {
                 mode: 'no-cors',
