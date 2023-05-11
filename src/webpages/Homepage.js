@@ -41,7 +41,7 @@ class Homepage extends Component {
       method: "GET",
       credentials: 'include',
       headers: {
-        mode: 'no-cors',
+        //mode: 'no-cors',
         'Content-Type': 'application/json',
       }
     })
