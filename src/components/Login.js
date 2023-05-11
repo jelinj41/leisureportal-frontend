@@ -27,7 +27,7 @@ class Login extends Component {
             method: "POST",
             credentials: 'include',
             headers: {
-                'Access-Control-Allow-Origin': 'http://localhost:3000',
+                'Access-Control-Allow-Origin': 'https://leisureportal-frontend.herokuapp.com',
             }
         }).then(response => {
             if (response.status !== 202) {
