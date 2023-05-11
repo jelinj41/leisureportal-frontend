@@ -6,7 +6,8 @@ import '../styles/ActivitiesPage.css';
 
 function ActivitiesPage() {
 
-  const restURL = "/rest/activities/";
+  const API_URL = process.env.REACT_APP_API_URL;
+  const restURL = API_URL + "/rest/activities/";
   const [activities, setActivities] = useState([])
   const [show, setShow] = useState(false)
   const [infoToShow, setInfoToShow] = useState([])
