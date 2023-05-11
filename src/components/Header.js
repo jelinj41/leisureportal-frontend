@@ -21,7 +21,7 @@ const Header = () => {
       method: "GET",
       credentials: 'include',
       headers: {
-        mode: 'cors',
+        mode: 'no-cors',
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
@@ -41,7 +41,7 @@ const Header = () => {
       method: "GET",
       credentials: 'include',
       headers: {
-        mode: 'cors',
+        mode: 'no-cors',
         'Content-Type': 'application/json',
       }
     })

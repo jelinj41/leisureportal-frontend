@@ -22,7 +22,7 @@ class Homepage extends Component {
       method: "GET",
       credentials: 'include',
       headers: {
-        mode: 'cors',
+        mode: 'no-cors',
         'Content-Type': 'application/json',
       }
     })
@@ -41,7 +41,7 @@ class Homepage extends Component {
       method: "GET",
       credentials: 'include',
       headers: {
-        mode: 'cors',
+        mode: 'no-cors',
         'Content-Type': 'application/json',
       }
     })
@@ -88,6 +88,8 @@ class Homepage extends Component {
   }
 
   render() {
+    console.log(isLoggedIn)
+    console.log(profileData)
     let activityList = [];
 
     this.state.activities.slice(-4).forEach(activity => {
