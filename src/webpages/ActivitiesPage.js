@@ -25,7 +25,7 @@ function ActivitiesPage() {
       method: "GET",
       credentials: 'include',
       headers: {
-        mode: 'no-cors',
+        mode: 'cors',
         'Content-Type': 'application/json',
       }
     })
@@ -64,7 +64,7 @@ function ActivitiesPage() {
       method: "GET",
       credentials: 'include',
       headers: {
-        mode: 'no-cors',
+        mode: 'cors',
         'Content-Type': 'application/json',
       }
     })
@@ -84,7 +84,7 @@ function ActivitiesPage() {
       method: "GET",
       credentials: 'include',
       headers: {
-        mode: 'no-cors',
+        mode: 'cors',
         'Content-Type': 'application/json',
       }
     })
