@@ -44,28 +44,27 @@ class Activity extends Component {
             })
     }
     async fetchAddress() {
-        const API_URL = process.env.REACT_APP_API_URL
+        const API_URL = process.env.REACT_APP_API_URL;
         const restURL = API_URL + "/rest/addresses/myAddresses";
         await fetch(restURL, {
+            method: "GET",
+            credentials: 'include',
             headers: {
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'mode': 'cors',
             }
         })
         .then(response => {
             return response.json()
         })
         .then(data => {
-            data.forEach(address => {
-                if (!this.state.addresses.some(option => option.props.value === address.id)) {
-                    this.setState(prevState => ({
-                        addresses: prevState.addresses.concat(
-                            <option key={address.id} value={address.id}>
-                                {address.city} - {address.street} - {address.houseNumber} - {address.zipCode} - {address.country}
-                            </option>
-                        )
-                    }));
-                }
-            });
+            const addresses = data.map(address => (
+                <option key={address.id} value={address.id}>
+                    {address.city} - {address.street} - {address.houseNumber} - {address.zipCode} - {address.country}
+                </option>
+            ));
+            this.setState({ addresses });
             if (data[0]) {
                 this.setState({ address_id: data[0].id });
             }
@@ -74,6 +73,7 @@ class Activity extends Component {
             console.log(error);
         });
     }
+    
     
     async fetchCategory() {
         const API_URL = process.env.REACT_APP_API_URL
