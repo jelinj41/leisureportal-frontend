@@ -56,25 +56,30 @@ class Activity extends Component {
             return response.json()
         })
         .then(data => {
-            data.forEach(address => {
-                if (!this.state.addresses.some(option => option.props.value === address.id)) {
-                    this.setState(prevState => ({
-                        addresses: prevState.addresses.concat(
-                            <option key={address.id} value={address.id}>
-                                {address.city} - {address.street} - {address.houseNumber} - {address.zipCode} - {address.country}
-                            </option>
-                        )
-                    }));
+            if (Array.isArray(data)) {
+                data.forEach(address => {
+                    if (!this.state.addresses.some(option => option.props.value === address.id)) {
+                        this.setState(prevState => ({
+                            addresses: prevState.addresses.concat(
+                                <option key={address.id} value={address.id}>
+                                    {address.city} - {address.street} - {address.houseNumber} - {address.zipCode} - {address.country}
+                                </option>
+                            )
+                        }));
+                    }
+                });
+                if (data[0]) {
+                    this.setState({ address_id: data[0].id });
                 }
-            });
-            if (data[0]) {
-                this.setState({ address_id: data[0].id });
+            } else {
+                console.log("Response is not an array:", data);
             }
         })
         .catch(error => {
             console.log(error);
         });
     }
+    
     
     async fetchCategory() {
         const API_URL = process.env.REACT_APP_API_URL
