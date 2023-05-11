@@ -4,7 +4,8 @@ function ParticipationPage() {
     const [participations, setParticipations] = useState([])
 
     const fetchParticipations = () => {
-        let restURL = "/rest/participations/myParticipations/";
+        const API_URL = process.env.REACT_APP_API_URL
+        let restURL = API_URL + "/rest/participations/myParticipations/";
         fetch(restURL, {
             method: "GET",
             credentials: 'include',

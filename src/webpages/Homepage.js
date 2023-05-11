@@ -16,7 +16,8 @@ class Homepage extends Component {
   }
   
   async checkLoggedIn() {
-    let restURL = "/rest/users/isLoggedIn";
+    const API_URL = process.env.REACT_APP_API_URL
+    let restURL = API_URL + "/rest/users/isLoggedIn";
     await fetch(restURL, {
       method: "GET",
       credentials: 'include',
@@ -34,7 +35,8 @@ class Homepage extends Component {
   }
 
   async fetchUser() {
-    let restURL = "/rest/users/current";
+    const API_URL = process.env.REACT_APP_API_URL
+    let restURL = API_URL + "/rest/users/current";
     await fetch(restURL, {
       method: "GET",
       credentials: 'include',
@@ -52,7 +54,8 @@ class Homepage extends Component {
   }
 
   async fetchData() {
-    let restURL = "/rest/activities/";
+    const API_URL = process.env.REACT_APP_API_URL
+    let restURL = API_URL + "/rest/activities/";
     await fetch(restURL, {
       headers: {
         method: "GET",

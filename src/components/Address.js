@@ -18,7 +18,8 @@ class Address extends Component {
 
     async address(e) {
         e.preventDefault();
-        const restURL = "/rest/addresses/";
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/rest/addresses/";
         await fetch(restURL, {
             method: "POST",
             credentials: 'include',

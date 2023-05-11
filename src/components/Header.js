@@ -14,7 +14,9 @@ const Header = () => {
   const [userData, setUserData] = useState({});
 
   async function checkLoggedIn() {
-    let restURL = "/rest/users/isLoggedIn";
+    const API_URL = process.env.REACT_APP_API_URL
+
+    let restURL = API_URL + "/rest/users/isLoggedIn";
     await fetch(restURL, {
       method: "GET",
       credentials: 'include',
@@ -33,7 +35,8 @@ const Header = () => {
   }
 
   async function fetchUserData() {
-    let restURL = "/rest/users/current";
+    const API_URL = process.env.REACT_APP_API_URL
+    let restURL = API_URL + "/rest/users/current";
     await fetch(restURL, {
       method: "GET",
       credentials: 'include',

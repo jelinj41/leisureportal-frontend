@@ -25,7 +25,8 @@ class SignUpUser extends Component {
     async sendSignUp(e) {
         e.preventDefault();
         this.validateInputs();
-        const restURL = "/rest/users";
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/rest/users";
         await fetch(restURL, {
             method: "POST",
             credentials: 'include',

@@ -19,7 +19,8 @@ function ActivitiesPage() {
   
 
   async function fetchUser() {
-    let restURL = "/rest/users/current";
+    const API_URL = process.env.REACT_APP_API_URL
+    let restURL = API_URL + "/rest/users/current";
     await fetch(restURL, {
       method: "GET",
       credentials: 'include',
@@ -57,7 +58,8 @@ function ActivitiesPage() {
   }
 
   async function fetchCategory() {
-    let restURL = "/rest/categories";
+    const API_URL = process.env.REACT_APP_API_URL
+    let restURL = API_URL + "/rest/categories";
     await fetch(restURL, {
       method: "GET",
       credentials: 'include',
@@ -76,7 +78,8 @@ function ActivitiesPage() {
   }
 
   async function fetchAddress() {
-    let restURL = "/rest/addresses";
+    const API_URL = process.env.REACT_APP_API_URL
+    let restURL = API_URL + "/rest/addresses";
     await fetch(restURL, {
       method: "GET",
       credentials: 'include',

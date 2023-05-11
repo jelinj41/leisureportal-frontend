@@ -18,7 +18,8 @@ class ProfilePage extends Component {
     }
 
     async fetchData() {
-        const restURL = "/rest/users/current";
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/rest/users/current";
         await fetch(restURL, {
             method: "GET",
             credentials: 'include',
@@ -54,7 +55,8 @@ class ProfilePage extends Component {
     }
 
     async saveData() {
-        const restURL = "/rest/users/" + this.state.profileData.id;
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/rest/users/" + this.state.profileData.id;
         await fetch(restURL, {
             method: "PUT",
             credentials: 'include',
@@ -75,7 +77,8 @@ class ProfilePage extends Component {
     }
 
     async Logout() {
-        const restURL = "/logout";
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/logout";
         await fetch(restURL, {
             method: "POST",
             credentials: 'include',

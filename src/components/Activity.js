@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 class Activity extends Component {
 
-
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -26,7 +26,8 @@ class Activity extends Component {
         this.createActivity = this.createActivity.bind(this);
     }
     async fetchUser() {
-        let restURL = "/rest/users/current";
+        const API_URL = process.env.REACT_APP_API_URL
+        let restURL = API_URL + "/rest/users/current";
         await fetch(restURL, {
             method: "GET",
             credentials: 'include',
@@ -43,7 +44,8 @@ class Activity extends Component {
             })
     }
     async fetchAddress() {
-        const restURL = "/rest/addresses/myAddresses";
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/rest/addresses/myAddresses";
         await fetch(restURL, {
             headers: {
                 mode: 'no-cors',
@@ -75,7 +77,8 @@ class Activity extends Component {
     }
     
     async fetchCategory() {
-        const restURL = "/rest/categories/";
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/rest/categories/";
         await fetch(restURL, {
           headers: {
             'Accept': 'application/json'
@@ -98,7 +101,8 @@ class Activity extends Component {
 
     async createActivity(e) {
         e.preventDefault();
-        const restURL = "/rest/activities/";
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/rest/activities/";
         await fetch(restURL, {
             method: "POST",
             credentials: 'include',

@@ -16,7 +16,8 @@ class ActivityHomepage extends Component {
     }
 
     async checkLoggedIn() {
-        let restURL = "/rest/users/isLoggedIn";
+        const API_URL = process.env.REACT_APP_API_URL
+        let restURL = API_URL + "/rest/users/isLoggedIn";
         await fetch(restURL, {
           method: "GET",
           credentials: 'include',
@@ -82,7 +83,8 @@ class ActivityHomepage extends Component {
     }
 
     async udateParticipation(par) {
-        const restURL = "/rest/participations/";
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/rest/participations/";
         await fetch(restURL, {
             method: "PUT",
             credentials: 'include',
@@ -102,8 +104,8 @@ class ActivityHomepage extends Component {
         })
     }
     async DeleteActivity() {
-
-        const restURL = "/rest/activities/" + this.props.data.id;
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/rest/activities/" + this.props.data.id;
         await fetch(restURL, {
             method: "DELETE",
             credentials: 'include',
@@ -123,7 +125,8 @@ class ActivityHomepage extends Component {
     }
 
     async Register() {
-        const restURL = "/rest/users/registerForActivity/" + this.props.data.id;
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/rest/users/registerForActivity/" + this.props.data.id;
         await fetch(restURL, {
             method: "POST",
             credentials: 'include',
@@ -135,7 +138,8 @@ class ActivityHomepage extends Component {
     }
 
     async Exit() {
-        const restURL = "/rest/users/exit/" + this.props.data.id;
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/rest/users/exit/" + this.props.data.id;
         await fetch(restURL, {
             method: "POST",
             credentials: 'include',

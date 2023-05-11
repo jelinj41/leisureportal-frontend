@@ -18,7 +18,8 @@ class Login extends Component {
 
     async sendLogin(e) {
         e.preventDefault();
-        const restURL = "/login_form?email="
+        const API_URL = process.env.REACT_APP_API_URL
+        const restURL = API_URL + "/login_form?email="
             + this.state.email
             + "&password="
             + this.state.password;
