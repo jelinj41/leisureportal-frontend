@@ -170,10 +170,10 @@ function ActivitiesPage() {
           </select>
         </div>
         <div className="organizer">
-          <b>Show only:</b>
+          <b>Aktivity:</b>
           <select name="organizer" onChange={handleOrganizerChange}>
-            <option value="">All activities</option>
-            <option value="my-activities">My created activities</option>
+            <option value="">Všetky aktivity</option>
+            <option value="my-activities">Moje vytvorené</option>
           </select>
         </div>
       </div>
