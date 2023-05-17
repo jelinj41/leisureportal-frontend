@@ -97,7 +97,21 @@ function ActivitiesPage() {
 
   function filterActivities(activity) {
     if (organizerFilter === "my-activities") {
-      return activity.author.id === profileData.id;
+      if (categoryFilter && cityFilter) {
+        const address = addresses.find((address) => address.id === activity.address.id);
+        return (
+          activity.author.id === profileData.id &&
+          activity.category.id === parseInt(categoryFilter) &&
+          address.city === cityFilter
+        );
+      } else if (categoryFilter) {
+        return activity.author.id === profileData.id && activity.category.id === parseInt(categoryFilter);
+      } else if (cityFilter) {
+        const address = addresses.find((address) => address.id === activity.address.id);
+        return activity.author.id === profileData.id && address.city === cityFilter;
+      } else {
+        return activity.author.id === profileData.id;
+      }
     } else {
       if (categoryFilter && cityFilter) {
         const address = addresses.find((address) => address.id === activity.address.id);
@@ -115,6 +129,7 @@ function ActivitiesPage() {
       }
     }
   }
+  
 
   let activityList = [];
   activities.filter(filterActivities).forEach(activity => {
