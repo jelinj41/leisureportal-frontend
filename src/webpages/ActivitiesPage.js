@@ -110,7 +110,7 @@ function ActivitiesPage() {
 
   function filterActivities(activity) {
     if (showOnlyOrganizerActivities) {
-      return activity.author === profileData.id;
+      return activity.author.id === profileData.id;
     } else {
       if (categoryFilter && cityFilter) {
         const address = addresses.find((address) => address.id === activity.address.id);
