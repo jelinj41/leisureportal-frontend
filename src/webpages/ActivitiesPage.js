@@ -101,33 +101,31 @@ function ActivitiesPage() {
   }
 
   useEffect(() => {
-    fetchData()
-    fetchCategory()
-    fetchAddress()
-    fetchUser()
+    fetchData();
+    fetchCategory();
+    fetchAddress();
+    fetchUser();
   }, [showOnlyOrganizerActivities]);
+  
 
   function filterActivities(activity) {
-    if (categoryFilter && cityFilter) {
-      const address = addresses.find((address) => address.id === activity.address.id);
-      return (
-        activity.category.id === parseInt(categoryFilter) &&
-        address.city === cityFilter &&
-        (!showOnlyOrganizerActivities || activity.author === profileData.id)
-      );
-    } else if (categoryFilter) {
-      return (
-        activity.category.id === parseInt(categoryFilter) &&
-        (!showOnlyOrganizerActivities || activity.author === profileData.id)
-      );
-    } else if (cityFilter) {
-      const address = addresses.find((address) => address.id === activity.address.id);
-      return (
-        address.city === cityFilter &&
-        (!showOnlyOrganizerActivities || activity.author === profileData.id)
-      );
+    if (showOnlyOrganizerActivities) {
+      return activity.author === profileData.id;
     } else {
-      return !showOnlyOrganizerActivities || activity.author === profileData.id;
+      if (categoryFilter && cityFilter) {
+        const address = addresses.find((address) => address.id === activity.address.id);
+        return (
+          activity.category.id === parseInt(categoryFilter) &&
+          address.city === cityFilter
+        );
+      } else if (categoryFilter) {
+        return activity.category.id === parseInt(categoryFilter);
+      } else if (cityFilter) {
+        const address = addresses.find((address) => address.id === activity.address.id);
+        return address.city === cityFilter;
+      } else {
+        return true;
+      }
     }
   }
   
@@ -186,14 +184,11 @@ let cityOptions = cityList.map(city => (
           </select>
         </div>
         <div className="organizer">
-          <label>
-            <input
-              type="checkbox"
-              checked={showOnlyOrganizerActivities}
-              onChange={(e) => setShowOnlyOrganizerActivities(e.target.checked)}
-            />
-          Show only my activities
-          </label>
+          <b>Show only:</b>
+          <select name="organizer" onChange={(e) => setShowOnlyOrganizerActivities(e.target.value === "my-activities")}>
+            <option value="">All activities</option>
+            <option value="my-activities">My created activities</option>
+          </select>
         </div>
       </div>
       <div className="ActivitiesContainer">
