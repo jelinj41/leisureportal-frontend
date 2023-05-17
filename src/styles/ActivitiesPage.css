@@ -14,7 +14,8 @@
 }
 
 .categories,
-.cities {
+.cities
+.organizer {
   margin-right: 20px; /* adjust this value as needed */
 }
 
