@@ -168,7 +168,14 @@ let cityOptions = cityList.map(city => (
         <div className="cities">
           <b>Mesto :</b>
           <select name="city" onChange={handleCityChange}>
-            <option value="">dfddfdfsfdfdsfdsfdssdfsdfdsf</option>
+            <option value="">Všetky mestá</option>
+            {cityOptions}             
+          </select>
+        </div>
+        <div className="cities">
+          <b>Mesto :</b>
+          <select name="city" onChange={handleCityChange}>
+            <option value="">Všetky mestá</option>
             {cityOptions}             
           </select>
         </div>
