@@ -15,8 +15,7 @@ function ActivitiesPage() {
   const [categoryFilter, setCategoryFilter] = useState(null);
   const [cityFilter, setCityFilter] = useState(null);
   const [addresses, setAddresses] = useState([]);
-  const [showOnlyOrganizerActivities, setShowOnlyOrganizerActivities] = useState(false);
-  const [organizerFilter, setOrganizerFilter] = useState("");
+  const [organizerFilter, setOrganizerFilter] = useState(null);
 
   async function fetchUser() {
     const API_URL = process.env.REACT_APP_API_URL;
@@ -32,7 +31,6 @@ function ActivitiesPage() {
     .then(response => response.json())
     .then(data => {
       setProfileData(data);
-      setOrganizerFilter(""); // Initialize the organizer filter
     });
   }
 
@@ -95,10 +93,10 @@ function ActivitiesPage() {
     fetchCategory();
     fetchAddress();
     fetchUser();
-  }, [showOnlyOrganizerActivities]);
+  }, []);
 
   function filterActivities(activity) {
-    if (showOnlyOrganizerActivities) {
+    if (organizerFilter === "my-activities") {
       return activity.author.id === profileData.id;
     } else {
       if (categoryFilter && cityFilter) {
@@ -151,21 +149,21 @@ function ActivitiesPage() {
   }
 
   function handleOrganizerChange(e) {
-    setOrganizerFilter(e.target.value === "my-activities" ? profileData.id : "");
+    setOrganizerFilter(e.target.value);
   }
 
   return (
     <div className="ActivitiesPage">
       <div className="Filters">
         <div className="categories">
-          <b>Kategória :</b>
+          <b>Kategória:</b>
           <select name="category" onChange={handleCategoryChange}>
             <option value="">Všetky kategórie</option>
             {categoryList}
           </select>
         </div>
         <div className="cities">
-          <b>Mesto :</b>
+          <b>Mesto:</b>
           <select name="city" onChange={handleCityChange}>
             <option value="">Všetky mestá</option>
             {cityOptions}
