@@ -167,7 +167,7 @@ let cityOptions = cityList.map(city => (
   }
 
   return (
-    <div className="Page">
+    <div className="ActivitiesPage">
       <div className="Filters">
         <div className="categories">
           <b>Kategória :</b>
