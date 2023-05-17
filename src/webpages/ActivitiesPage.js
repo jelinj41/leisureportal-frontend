@@ -16,6 +16,8 @@ function ActivitiesPage() {
   const [categoryFilter, setCategoryFilter] = useState(null);
   const [cityFilter, setCityFilter] = useState(null);
   const [addresses, setAddresses] = useState([]);
+  const [showOnlyOrganizerActivities, setShowOnlyOrganizerActivities] = useState(false);
+
 
   
 
@@ -103,21 +105,32 @@ function ActivitiesPage() {
     fetchCategory()
     fetchAddress()
     fetchUser()
-  }, [])
+  }, [showOnlyOrganizerActivities]);
 
   function filterActivities(activity) {
     if (categoryFilter && cityFilter) {
-      const address = addresses.find(address => address.id === activity.address.id);
-      return activity.category.id === parseInt(categoryFilter) && address.city === cityFilter;
+      const address = addresses.find((address) => address.id === activity.address.id);
+      return (
+        activity.category.id === parseInt(categoryFilter) &&
+        address.city === cityFilter &&
+        (!showOnlyOrganizerActivities || activity.author === profileData.id)
+      );
     } else if (categoryFilter) {
-      return activity.category.id === parseInt(categoryFilter);
+      return (
+        activity.category.id === parseInt(categoryFilter) &&
+        (!showOnlyOrganizerActivities || activity.author === profileData.id)
+      );
     } else if (cityFilter) {
-      const address = addresses.find(address => address.id === activity.address.id);
-      return address.city === cityFilter;
+      const address = addresses.find((address) => address.id === activity.address.id);
+      return (
+        address.city === cityFilter &&
+        (!showOnlyOrganizerActivities || activity.author === profileData.id)
+      );
     } else {
-      return true;
+      return !showOnlyOrganizerActivities || activity.author === profileData.id;
     }
   }
+  
   
 
   let activityList = [];
@@ -172,6 +185,16 @@ let cityOptions = cityList.map(city => (
             {cityOptions}             
           </select>
         </div>
+        <div className="organizer">
+        <label>
+          <input
+            type="checkbox"
+            checked={showOnlyOrganizerActivities}
+            onChange={(e) => setShowOnlyOrganizerActivities(e.target.checked)}
+          />
+        Show only my activities
+    </label>
+  </div>
       </div>
       <div className="ActivitiesContainer">
         {activityList}
