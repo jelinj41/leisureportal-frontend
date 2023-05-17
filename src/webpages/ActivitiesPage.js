@@ -156,7 +156,7 @@ let cityOptions = cityList.map(city => (
   }
 
   return (
-    <div className="Page">
+    <div className="ActivitiesPage">
       <div className="Filters">
         <div className="categories">
           <b>Kategória :</b>
@@ -168,7 +168,7 @@ let cityOptions = cityList.map(city => (
         <div className="cities">
           <b>Mesto :</b>
           <select name="city" onChange={handleCityChange}>
-            <option value="">Všetky mestá</option>
+            <option value="">dfddfdfsfdfdsfdsfdssdfsdfdsf</option>
             {cityOptions}             
           </select>
         </div>
