@@ -156,17 +156,17 @@ function ActivitiesPage() {
     <div className="ActivitiesPage">
       <div className="Filters">
         <div className="categories">
-          <b>Kategória:</b>
+          <b>Kategória :</b>
           <select name="category" onChange={handleCategoryChange}>
             <option value="">Všetky kategórie</option>
-            {categoryList}
+            {categoryList}             
           </select>
         </div>
         <div className="cities">
-          <b>Mesto:</b>
+          <b>Mesto :</b>
           <select name="city" onChange={handleCityChange}>
             <option value="">Všetky mestá</option>
-            {cityOptions}
+            {cityOptions}             
           </select>
         </div>
         <div className="organizer">
@@ -182,7 +182,7 @@ function ActivitiesPage() {
       </div>
       <ActivityInfo onClose={showInfo} data={infoToShow} show={show} />
     </div>
-  );
+  );  
 }
 
 export default ActivitiesPage;
