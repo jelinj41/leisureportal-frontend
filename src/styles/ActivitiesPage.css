@@ -5,7 +5,7 @@
   width: 100%;
 }
 
-.Filters {
+Filters {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -26,4 +26,3 @@
   flex-wrap: wrap;
   width: 100%;
 }
-

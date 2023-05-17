@@ -186,15 +186,15 @@ let cityOptions = cityList.map(city => (
           </select>
         </div>
         <div className="organizer">
-        <label>
-          <input
-            type="checkbox"
-            checked={showOnlyOrganizerActivities}
-            onChange={(e) => setShowOnlyOrganizerActivities(e.target.checked)}
-          />
-        Show only my activities
-    </label>
-  </div>
+          <label>
+            <input
+              type="checkbox"
+              checked={showOnlyOrganizerActivities}
+              onChange={(e) => setShowOnlyOrganizerActivities(e.target.checked)}
+            />
+          Show only my activities
+          </label>
+        </div>
       </div>
       <div className="ActivitiesContainer">
         {activityList}
