@@ -39,11 +39,11 @@ class Address extends Component {
         }).then(response => {
             if (response.status === 201) {
                 window.alert("Address added.");
-                window.location.assign("/");
+                window.location.reload();
             }
             else {
                 window.alert("Something went wrong.");
-                window.location.assign("/");
+                window.location.reload();
             }
         })
     }
