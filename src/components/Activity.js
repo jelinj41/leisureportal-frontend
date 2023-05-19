@@ -131,6 +131,7 @@ class Activity extends Component {
         }).then(response => {
             if (response.status === 201) {
                 window.alert("Activity created");
+                window.location.reload();
             }
             else {
                 window.alert("Something went wrong.")
