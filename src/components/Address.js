@@ -24,7 +24,8 @@ class Address extends Component {
       this.state.city.length > 100 ||
       this.state.street.length > 100 ||
       this.state.houseNumber < 0 ||
-      this.state.zipCode.length !== 5
+      this.state.zipCode.length !== 5 ||
+      this.state.country.length > 100
     ) {
       window.alert("Invalid form data.");
       return;
