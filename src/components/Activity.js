@@ -102,6 +102,9 @@ class Activity extends Component {
         e.preventDefault();
         const API_URL = process.env.REACT_APP_API_URL
         const restURL = API_URL + "/rest/activities/";
+        
+        const minAge = parseInt(this.state.min_age);
+         const maxAge = parseInt(this.state.max_age);
 
         if (
             this.state.name.length > 100 ||
@@ -111,11 +114,11 @@ class Activity extends Component {
             this.state.capacity > 100000 ||
             this.state.price < 0 ||
             this.state.price > 10000 ||
-            this.state.min_age < 0 ||
-            this.state.min_age > 150 ||
-            this.state.max_age < 0 ||
-            this.state.max_age > 150 ||
-            this.state.min_age > this.state.max_age
+            minAge < 0 ||
+            minAge > 150 ||
+            maxAge < 0 ||
+            maxAge > 150 ||
+            minAge > maxAge
           ) {
             window.alert("Invalid form data.");
             return;
