@@ -115,7 +115,7 @@ class Activity extends Component {
             this.state.min_age > 150 ||
             this.state.max_age < 0 ||
             this.state.max_age > 150 ||
-            this.state.max_age < this.state.min_age
+            this.state.min_age > this.state.max_age
           ) {
             window.alert("Invalid form data.");
             return;
