@@ -43,7 +43,6 @@ class Address extends Component {
             }
             else {
                 window.alert("Something went wrong.");
-                window.location.reload();
             }
         })
     }
