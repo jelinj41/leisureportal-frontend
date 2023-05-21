@@ -58,7 +58,7 @@ class ProfilePage extends Component {
         const API_URL = process.env.REACT_APP_API_URL
         const restURL = API_URL + "/rest/users/" + this.state.profileData.id;
         await fetch(restURL, {
-            method: "PUT",
+            method: "PATCH",
             credentials: 'include',
             headers: {
                 'Access-Control-Allow-Origin': 'http://localhost:3000',
