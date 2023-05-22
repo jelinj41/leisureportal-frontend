@@ -25,6 +25,8 @@ class Activity extends Component {
         }
         this.createActivity = this.createActivity.bind(this);
     }
+
+    // Fetch the current user's profile data
     async fetchUser() {
         const API_URL = process.env.REACT_APP_API_URL
         let restURL = API_URL + "/rest/users/current";
@@ -43,6 +45,8 @@ class Activity extends Component {
                 this.setState({ profiledata: data });
             })
     }
+
+    // Fetch addresses for the select dropdown
     async fetchAddress() {
         const API_URL = process.env.REACT_APP_API_URL;
         const restURL = API_URL + "/rest/addresses/myAddresses";
@@ -74,7 +78,7 @@ class Activity extends Component {
         });
     }
     
-    
+    // Fetch categories for the select dropdown
     async fetchCategory() {
         const API_URL = process.env.REACT_APP_API_URL
         const restURL = API_URL + "/rest/categories/";
@@ -98,6 +102,7 @@ class Activity extends Component {
         })
       }
 
+    // Create an activity
     async createActivity(e) {
         e.preventDefault();
         const API_URL = process.env.REACT_APP_API_URL
@@ -123,7 +128,8 @@ class Activity extends Component {
             window.alert("Invalid form data.");
             return;
           }
-        
+
+        // Send a POST request to create the activity
         await fetch(restURL, {
             method: "POST",
             credentials: 'include',
@@ -160,33 +166,44 @@ class Activity extends Component {
             }
         })
     }
+
+    // Event handler for name input change
     handleChangeName(value) {
         this.setState({ name: value });
     }
+    // Event handler for description input change    
     handleChangeDescription(value) {
         this.setState({ description: value });
     }
+    // Event handler for address input change
     handleChangeAddress(value) {
         this.setState({ address_id: value });
     }
+    // Event handler for category input change
     handleChangeCategory(value) {
         this.setState({ category_id: value });
     }
+    // Event handler for fromDate input change
     handleChangeFromDate(value) {
         this.setState({ fromDate: value });
     }
+    // Event handler for toDate input change
     handleChangeToDate(value) {
         this.setState({ toDate: value });
     }
+    // Event handler for min_age input change
     handleChangeMinAge(value) {
         this.setState({ min_age: value });
     }
+    // Event handler for max_age input change
     handleChangeMaxAge(value) {
         this.setState({ max_age: value });
     }
+    // Event handler for price input change
     handleChangePrice(value) {
         this.setState({ price: value });
     }
+    // Event handler for capacity input change
     handleChangeCapacity(value) {
         this.setState({ capacity: value });
     }

@@ -15,6 +15,7 @@ class ActivityHomepage extends Component {
         this.renderREG = this.renderREG.bind(this);
     }
 
+  // Check if the user is logged in
     async checkLoggedIn() {
         const API_URL = process.env.REACT_APP_API_URL
         let restURL = API_URL + "/rest/users/isLoggedIn";
@@ -34,6 +35,7 @@ class ActivityHomepage extends Component {
           })
       }
 
+  // Render the delete button if the user is the author or an admin
     renderDelete() {
         if ((this.props.data.author && (this.props.user.id === this.props.data.author.id))
             || this.props.user.id === this.props.data.author
@@ -46,6 +48,8 @@ class ActivityHomepage extends Component {
             return;
         }
     }
+
+  // Render the registration button or exit button based on the user's registration status
     renderREG() {
         if (this.state.registered) {
             return (<button className='reg-button' onClick={() => {
@@ -59,6 +63,7 @@ class ActivityHomepage extends Component {
         }
     }
 
+      // Render the button to download participant information if the user is the author or an admin
     participationsDownload() {
         if ((this.props.data.author && (this.props.user.id === this.props.data.author.id))
             || this.props.user.id === this.props.data.author
@@ -70,6 +75,7 @@ class ActivityHomepage extends Component {
         }
     }
 
+      // Check if the user is registered for the activity
     registered() {
         if (!this.state.registered) {
             this.props.data.participations.forEach(element => {
@@ -82,6 +88,7 @@ class ActivityHomepage extends Component {
         }
     }
 
+      // Update the participation status
     async udateParticipation(par) {
         const API_URL = process.env.REACT_APP_API_URL
         const restURL = API_URL + "/rest/participations/";
@@ -103,6 +110,8 @@ class ActivityHomepage extends Component {
             })
         })
     }
+
+      // Delete the activity
     async DeleteActivity() {
         const API_URL = process.env.REACT_APP_API_URL
         const restURL = API_URL + "/rest/activities/" + this.props.data.id;
@@ -124,6 +133,7 @@ class ActivityHomepage extends Component {
     componentDidUpdate() {
     }
 
+      // Register the user for the activity
     async Register() {
         const API_URL = process.env.REACT_APP_API_URL
         const restURL = API_URL + "/rest/users/registerForActivity/" + this.props.data.id;
@@ -137,6 +147,7 @@ class ActivityHomepage extends Component {
         window.location.reload();
     }
 
+      // Exit the activity
     async Exit() {
         const API_URL = process.env.REACT_APP_API_URL
         const restURL = API_URL + "/rest/users/exit/" + this.props.data.id;
@@ -149,6 +160,8 @@ class ActivityHomepage extends Component {
         })
         window.location.reload();
     }
+
+      // Download the list of participants as a text file
     downloadResFile = () => {
         const participants = this.props.data.participations.map(participant => `${participant.user.firstName} ${participant.user.lastName}`);
         const element = document.createElement("a");
