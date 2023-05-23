@@ -17,6 +17,7 @@ class ProfilePage extends Component {
         this.enableEdit = this.enableEdit.bind(this);
     }
 
+        // Get the currently logged in user's data
     async fetchData() {
         const API_URL = process.env.REACT_APP_API_URL
         const restURL = API_URL + "/rest/users/current";
@@ -42,7 +43,7 @@ class ProfilePage extends Component {
             })
     }
 
-    
+       // Choose between Edit and Save mode
     enableEdit() {
         if (this.state.readOnly) {
             this.setState({ readOnly: false });
@@ -54,6 +55,7 @@ class ProfilePage extends Component {
         }
     }
 
+        // Send PATCH request to update user's data
     async saveData() {
         const API_URL = process.env.REACT_APP_API_URL
         const restURL = API_URL + "/rest/users/" + this.state.profileData.id;
@@ -76,6 +78,7 @@ class ProfilePage extends Component {
         })
     }
 
+        // Send POST request to log the user out
     async Logout() {
         const API_URL = process.env.REACT_APP_API_URL
         const restURL = API_URL + "/logout";
@@ -95,19 +98,23 @@ class ProfilePage extends Component {
     componentDidMount() {
         this.fetchData();
     }
-
+        // Event handler for email input change
     handleChangeEmail(value) {
         this.setState({ email: value });
     }
+        // Event handler for firstName input change
     handleChangeFirstName(value) {
         this.setState({ firstName: value });
     }
+        // Event handler for lastName input change
     handleChangeLastName(value) {
         this.setState({ lastName: value });
     }
+        // Event handler for age input change
     handleChangeAge(value) {
         this.setState({ age: value });
     }
+        // Event handler for password input change
     handleChangePassword(value) {
         this.setState({ password: value });
     }

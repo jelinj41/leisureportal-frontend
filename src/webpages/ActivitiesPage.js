@@ -17,6 +17,7 @@ function ActivitiesPage() {
   const [addresses, setAddresses] = useState([]);
   const [organizerFilter, setOrganizerFilter] = useState(null);
 
+      // Get the currently logged in user's data
   async function fetchUser() {
     const API_URL = process.env.REACT_APP_API_URL;
     let restURL = API_URL + "/rest/users/current";
@@ -34,11 +35,13 @@ function ActivitiesPage() {
     });
   }
 
+      // Show info of the current activity
   function showInfo(infoToShow) {
     setInfoToShow(infoToShow);
     setShow(!show);
   }
 
+      // Get the activity data
   async function fetchData() {
     await fetch(restURL, {
       headers: {
@@ -52,6 +55,7 @@ function ActivitiesPage() {
     });
   }
 
+    // Get the category data
   async function fetchCategory() {
     const API_URL = process.env.REACT_APP_API_URL;
     let restURL = API_URL + "/rest/categories";
@@ -70,6 +74,7 @@ function ActivitiesPage() {
     });
   }
 
+      // Get the addresses data
   async function fetchAddress() {
     const API_URL = process.env.REACT_APP_API_URL;
     let restURL = API_URL + "/rest/addresses";
@@ -95,6 +100,7 @@ function ActivitiesPage() {
     fetchUser();
   }, []);
 
+      // Filter activities based on city, category of organizer's own activities
   function filterActivities(activity) {
     if (organizerFilter === "my-activities") {
       if (categoryFilter && cityFilter) {
@@ -130,7 +136,7 @@ function ActivitiesPage() {
     }
   }
   
-
+    // Push activities into a new list
   let activityList = [];
   activities.filter(filterActivities).forEach(activity => {
     activityList.push(
@@ -139,11 +145,14 @@ function ActivitiesPage() {
   });
   activityList = activityList.reverse(); // Reverse the array
 
+    // Push categories into a new list
   let categoryList = [];
   categories.forEach(category => {
     categoryList.push(<option key={category.id} value={category.id}>{category.name}</option>);
   });
 
+
+    // Push cities into a new list
   let cityList = [];
   addresses.forEach(address => {
     if (!cityList.includes(address.city)) {
@@ -155,14 +164,15 @@ function ActivitiesPage() {
     <option key={city} value={city}>{city}</option>
   ));
 
+        // Event handler for category input change
   function handleCategoryChange(e) {
     setCategoryFilter(e.target.value);
   }
-
+        // Event handler for city input change
   function handleCityChange(e) {
     setCityFilter(e.target.value);
   }
-
+        // Event handler for organizer activities input change
   function handleOrganizerChange(e) {
     setOrganizerFilter(e.target.value);
   }

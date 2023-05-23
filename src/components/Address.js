@@ -14,6 +14,7 @@ class Address extends Component {
     this.address = this.address.bind(this);
   }
 
+  // Create an address
   async address(e) {
     e.preventDefault();
     const API_URL = process.env.REACT_APP_API_URL;
@@ -31,6 +32,7 @@ class Address extends Component {
       return;
     }
 
+      // Send a POST request to create the address
     await fetch(restURL, {
       method: "POST",
       credentials: 'include',
@@ -55,23 +57,23 @@ class Address extends Component {
       }
     })
   }
-
+    // Event handler for city input change
   handleChangeCity(value) {
     this.setState({ city: value });
   }
-
+    // Event handler for street input change
   handleChangeStreet(value) {
     this.setState({ street: value });
   }
-
+    // Event handler for house number input change
   handleChangeHouseNumber(value) {
     this.setState({ houseNumber: value });
   }
-
+    // Event handler for zipCode input change
   handleChangeZipCode(value) {
     this.setState({ zipCode: value });
   }
-
+    // Event handler for country input change
   handleChangeCountry(value) {
     this.setState({ country: value });
   }

@@ -3,6 +3,7 @@ import Participation from "../components/Participation";
 function ParticipationPage() {
     const [participations, setParticipations] = useState([])
 
+        // Send GET request to get user's participations
     const fetchParticipations = () => {
         const API_URL = process.env.REACT_APP_API_URL
         let restURL = API_URL + "/rest/participations/myParticipations/";
@@ -24,6 +25,7 @@ function ParticipationPage() {
         fetchParticipations()
     }, [])
 
+      // Push partcipations into a new list
     let parList = [];
     Array.from(participations).forEach((par, index) => {
         parList.push(<Participation key={`${par.id}-${index}`} data={par} />);

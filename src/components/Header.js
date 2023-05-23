@@ -13,6 +13,7 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState({});
 
+    // Check if the user is logged in
   async function checkLoggedIn() {
     const API_URL = process.env.REACT_APP_API_URL
 
@@ -33,7 +34,7 @@ const Header = () => {
       setIsLoggedIn(data);
     })
   }
-
+    // Get the currently logged in user's data
   async function fetchUserData() {
     const API_URL = process.env.REACT_APP_API_URL
     let restURL = API_URL + "/rest/users/current";
@@ -58,6 +59,7 @@ const Header = () => {
     fetchUserData();
   }, [])
 
+    // Create CreateActivityPage if the user is admin or organizer
   function renderCreate() {
     if (userData.type === "admin" || userData.type === "organizer") {
       return <CreateActivityPage />;

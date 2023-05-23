@@ -20,8 +20,10 @@ class SignUpUser extends Component {
     componentDidMount() {
     }
     validateInputs() {
-        //todo
+        //not done
     }
+
+      // Send POST request to sign up a user
     async sendSignUp(e) {
         e.preventDefault();
         this.validateInputs();
@@ -48,22 +50,27 @@ class SignUpUser extends Component {
             }
         })
     }
-
+        // Event handler for password input change
     handleChangePass(value) {
         this.setState({ password: value });
     }
+        // Event handler for firstName input change
     handleChangeFirstName(value) {
         this.setState({ firstName: value });
     }
+        // Event handler for lastName input change
     handleChangeLastName(value) {
         this.setState({ lastName: value });
     }
+        // Event handler for email input change
     handleChangeEmail(value) {
         this.setState({ email: value });
     }
+        // Event handler for age input change
     handleChangeAge(value) {
         this.setState({ age: value });
     }
+        // Event handler for type input change
     handleChangeType(value) {
         this.setState({ type: value });
     }

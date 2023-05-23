@@ -14,7 +14,7 @@ class Homepage extends Component {
       show: false,
     }
   }
-  
+    // Check if the user is logged in
   async checkLoggedIn() {
     const API_URL = process.env.REACT_APP_API_URL
     let restURL = API_URL + "/rest/users/isLoggedIn";
@@ -33,7 +33,7 @@ class Homepage extends Component {
         this.setState({ isLoggedIn: data });
       })
   }
-
+      // Get the currently logged in user's data
   async fetchUser() {
     const API_URL = process.env.REACT_APP_API_URL
     let restURL = API_URL + "/rest/users/current";
@@ -52,7 +52,7 @@ class Homepage extends Component {
         this.setState({ profileData: data });
       })
   }
-
+      // Get the activity data
   async fetchData() {
     const API_URL = process.env.REACT_APP_API_URL
     let restURL = API_URL + "/rest/activities/";
@@ -75,7 +75,8 @@ class Homepage extends Component {
     this.fetchUser()
     this.fetchData()
   }
-
+  
+  // Show the info of the activity
   showInfo = (infoToShow) => {
     this.setState({
       infoToShow: infoToShow,
@@ -90,6 +91,8 @@ class Homepage extends Component {
   render() {
     console.log(this.state.isLoggedIn)
     console.log(this.state.profileData);
+
+    // Push activities into a new list and only show the 4 most recently added
     let activityList = [];
 
     this.state.activities.slice(-4).forEach(activity => {

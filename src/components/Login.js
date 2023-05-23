@@ -15,7 +15,7 @@ class Login extends Component {
 
     componentDidMount() {
     }
-
+      // Send POST request to log in a user
     async sendLogin(e) {
         e.preventDefault();
         const API_URL = process.env.REACT_APP_API_URL
@@ -40,10 +40,11 @@ class Login extends Component {
             }
         })
     }
-
+        // Event handler for password input change
     handleChangePass(value) {
         this.setState({ password: value });
     }
+        // Event handler for email input change
     handleChangeEmail(value) {
         this.setState({ email: value });
     }
