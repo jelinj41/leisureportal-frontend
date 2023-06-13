@@ -284,7 +284,7 @@ class Activity extends Component {
                 />
               </div>
               <div className="capacity">
-                <p>Capacity : </p>
+                <p>Kapacita : </p>
                 <input
                   type="number"
                   value={this.state.capacity}
